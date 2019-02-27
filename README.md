@@ -21,9 +21,8 @@ python detect_image.py
 Look into the `config.json` to change the model being used or any other specifics.
 
 ### Usage
-Use --help to see usage of yolo_video.py:
 ```
-usage: yolo_video.py 
+python detect_image.py
 ```
 
 Configure the `config.json` file to make changes to anything.
@@ -32,17 +31,17 @@ Configure the `config.json` file to make changes to anything.
     "model": {
         "model_path": "model_data/yolo_weights.h5",
         "anchors_path": "model_data/yolo_anchors.txt",
-        "classes_path": "model_data/detect_classes.txt",
+        "classes_path": "model_data/yolo_classes.txt",
         "score" : 0.3,
         "iou" : 0.5,
-        "model_image_height" : 416,
-        "model_image_width" : 416,
+        "image_height" : 416,
+        "image_width" : 416,
         "gpu_num" : 1
     },
     "train": {
         "training_file": "training_file.txt",
         "log_dir": "logs/000/",
-        "classes_path": "model_data/detect_classes.txt",
+        "classes_path": "model_data/yolo_classes.txt",
         "anchors_path": "model_data/yolo_anchors.txt"
     }
 }
@@ -55,8 +54,8 @@ Configure the `config.json` file to make changes to anything.
 | classes_path | A file that contains the classes trained to be detected |
 | score | The minimum score used (from 0-1) for a positive match to be found |
 | iou | Intersection Over Union threshold,  |
-| model_image_height | Yolo downscales the image to this size |
-| model_image_width | Yolo downscales the image to this size |
+| image_height | Yolo downscales the image to this size |
+| image_width | Yolo downscales the image to this size |
 | gpu_num | The number of GPUs to use |
 
 #### Training

@@ -22,20 +22,13 @@ class YOLO(object):
     _defaults = {
         "model_path": 'model_data/yolo_weights.h5',
         "anchors_path": 'model_data/yolo_anchors.txt',
-        "classes_path": 'model_data/detect_classes.txt',
+        "classes_path": 'model_data/yolo_classes.txt',
         "score" : 0.3,
-        "iou" : 0.45,
-        "model_image_height" : 416,
-        "model_image_width" : 416,
+        "iou" : 0.5,
+        "image_height" : 416,
+        "image_width" : 416,
         "gpu_num" : 1,
     }
-
-    @classmethod
-    def get_defaults(cls, n):
-        if n in cls._defaults:
-            return cls._defaults[n]
-        else:
-            return "Unrecognized attribute name '" + n + "'"
 
     def __init__(self, **kwargs):
         self.__dict__.update(self._defaults) # set up default values
@@ -103,11 +96,11 @@ class YOLO(object):
     def detect_image(self, image):
         start = timer()
         
-        if self.model_image_height is not None and self.model_image_width is not None:
-            assert self.model_image_height%32 == 0, 'Multiples of 32 required'
-            assert self.model_image_width%32 == 0, 'Multiples of 32 required'
+        if self.image_height is not None and self.image_width is not None:
+            assert self.image_height%32 == 0, 'Multiples of 32 required'
+            assert self.image_width%32 == 0, 'Multiples of 32 required'
 
-            boxed_image = letterbox_image(image, (self.model_image_height, self.model_image_width))
+            boxed_image = letterbox_image(image, (self.image_height, self.image_width))
         else:
             new_image_size = (image.width - (image.width % 32),
                               image.height - (image.height % 32))
