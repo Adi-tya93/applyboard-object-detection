@@ -18,8 +18,6 @@ python convert.py configs/yolov3.cfg yolov3.weights model_data/yolo_weights.h5
 python detect_image.py
 ```
 
-Look into the `config.json` to change the model being used or any other specifics.
-
 ### Usage
 ```
 python detect_image.py
