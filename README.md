@@ -6,6 +6,12 @@ A Keras implementation of YOLOv3 (Tensorflow backend) inspired by [qqwweee](http
 
 ---
 
+## Dependencies
+Install the dependencies with pip:
+```
+pip install -r requirements.txt
+```
+
 ## Quick Start
 
 1. Download YOLOv3 weights from [YOLO website](http://pjreddie.com/darknet/yolo/).
