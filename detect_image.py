@@ -1,5 +1,3 @@
-import sys
-import argparse
 from yolo import YOLO
 from PIL import Image
 import json
